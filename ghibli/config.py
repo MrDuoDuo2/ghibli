@@ -11,7 +11,7 @@ class Config(HappyConfigBase):
     def __init__(self):
         super().__init__()
 
-        self.section = 'api-python-sample'
+        self.section = 'ghibli'
         self.listen = ''
         self.port = 0
         self.debug = True
