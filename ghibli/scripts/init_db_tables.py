@@ -7,8 +7,8 @@
 """
 
 from model.init_model import DBModelBase
-from config import engine
-from config import session
+from common import engine
+from common import session
 
 # 如果没有导入表，那必须加载数据库模型包，才会创建表。
 
