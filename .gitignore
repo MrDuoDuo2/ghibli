@@ -1,5 +1,6 @@
 .idea/
-__pycache__
+ghibli/.idea
+ghibli/__pycache__
 log.ini
 common.ini
 *.log
