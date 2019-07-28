@@ -24,8 +24,6 @@ def get_films():
     film_objs = session.query(Films).all()
 
     for obj in film_objs:
-        hlog.info("开始读取从数据查询到的电影记录。")
-
         film_id = obj.id
         hlog.var('film_id', film_id)
 
@@ -52,7 +50,6 @@ def get_films():
         film_list.append(film)
 
     hlog.info("读取电影信息成功。")
-
     hlog.exit_func(func_name)
 
     return film_list
