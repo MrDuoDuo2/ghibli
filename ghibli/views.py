@@ -6,10 +6,11 @@ import inspect
 
 from common import session
 from common import hlog
-from model import Films
+from model import Film
+from flask import request, flash
 
 
-def get_films():
+def get_film_list():
     """
     获取电影信息
     :return:
@@ -21,7 +22,7 @@ def get_films():
     hlog.enter_func(func_name)
 
     film_list = list()
-    film_objs = session.query(Films).all()
+    film_objs = session.query(Film).all()
 
     for obj in film_objs:
         film_id = obj.id
@@ -53,3 +54,65 @@ def get_films():
     hlog.exit_func(func_name)
 
     return film_list
+
+
+def add_film():
+    _id = request.form.get('id')
+    _title = request.form.get('title')
+    _description = request.form.get('description')
+    _director = request.form.get('director')
+    _producer = request.form.get('producer')
+    _release_date = request.form.get('release_date')
+    _rt_score = request.form.get('rt_score')
+    _url = request.form.get('url')
+
+    hlog.var('_id', _id)
+    hlog.var('_title', _title)
+    hlog.var('_description', _description)
+    hlog.var('_director', _director)
+    hlog.var('_producer', _producer)
+    hlog.var('_release_date', _release_date)
+    hlog.var('_rt_score', _rt_score)
+    hlog.var('_url', _url)
+
+    old_film = session.query(Film).filter(Film.id == _id).all()
+
+    if old_film:
+        return {"status": "1", "message": "电影编号已经存在"}
+
+    film = Film(id=_id,
+                title=_title,
+                description=_description,
+                director=_director,
+                producer=_producer,
+                release_date=_release_date,
+                rt_score=_rt_score,
+                url=_url
+                )
+    session.add(film)
+    session.commit()
+
+    return {"status": "0", "message": "新增成功"}
+
+
+def delete_film():
+    _id = request.form.get('id')
+
+    if _id:
+        film = session.query(Film).filter(Film.id == _id).delete()
+        session.commit()
+        return {"status": "0", "message": "电影 " + _id + " 删除成功"}
+
+    return {"status": "1", "message": "电影编号无效"}
+
+
+def get_film_info():
+    film_id = request.args.get('id')
+
+    if film_id:
+        films = session.query(Film).filter(Film.id == film_id).all()
+
+        if films:
+            return films[0]
+
+    return Film()
