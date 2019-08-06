@@ -25,10 +25,12 @@ function delete_film(event) {
   ajax_post('/delete_film', {'id':id})
 }
 
-function addCell(film_div, value, is_id, is_last) {
+function addCell(film_div, value, is_id, is_title, is_last) {
   var cell_div = document.createElement('div');
   if (is_id)
     cell_div.className = "div_table_cell_id"
+  else if (is_title)
+    cell_div.className = "div_table_cell_title"
   else if (is_last)
     cell_div.className = "div_table_cell_last"
   else
@@ -47,17 +49,17 @@ function successListener() {
     var film_div = document.createElement('div');
     film_div.className = "div_table_row"
 
-    addCell(film_div, film.id, true, null)
-    addCell(film_div, film.title, null, null)
-    addCell(film_div, film.director, null, null)
-    addCell(film_div, film.producer)
-    addCell(film_div, film.release_date, null, null)
-    addCell(film_div, film.rt_score, null, null)
+    addCell(film_div, film.id, true, null, null)
+    addCell(film_div, film.title, null, true, null)
+    addCell(film_div, film.director, null, null, null)
+    addCell(film_div, film.producer, null, null, null)
+    addCell(film_div, film.release_date, null, null, null)
+    addCell(film_div, film.rt_score, null, null, null)
     addCell(film_div, 
         "<button> \
           <a href='/get_film_info?id=" + film.id + "'>详情</a> \
         </button> \
-        <button data-id='" + film.id + "' onclick='delete_film(event)'>删除</button>", null, true)
+        <button data-id='" + film.id + "' onclick='delete_film(event)'>删除</button>", null, null, true)
 
     document.getElementById('content').appendChild(film_div);
   }

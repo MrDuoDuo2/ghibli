@@ -12,7 +12,7 @@ h1 {
 	clear: both;
 }
 
-.div_table_head, .div_table_head_id, .div_table_head_last, .div_table_foot {
+.div_table_head, .div_table_head_id, .div_table_head_title, .div_table_head_last, .div_table_foot {
 	background-color: #DDD;
 	font-weight: bold;
 }
@@ -23,7 +23,7 @@ h1 {
 	height: 17px;
 	overflow: hidden;
 	padding: 3px 1.8%;
-	width: 5%;
+	width: 4%;
 }
 
 .div_table_cell_id, .div_table_head_id {
@@ -32,7 +32,16 @@ h1 {
 	height: 17px;
 	overflow: hidden;
 	padding: 3px 1.8%;
-	width: 38%;
+	width: 33%;
+}
+
+.div_table_cell_title, .div_table_head_title {
+	border: 1px solid #999999;
+	float: left;
+	height: 17px;
+	overflow: hidden;
+	padding: 3px 1.8%;
+	width: 14%;
 }
 
 .div_table_cell_last, .div_table_head_last {
