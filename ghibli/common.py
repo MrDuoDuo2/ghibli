@@ -19,8 +19,7 @@ LOG_CONFIG_FILENAME = str(CONFIG_DIR / 'log.ini')
 config = Config()
 HappyConfigParser.load(CONFIG_FILENAME, config)
 
-# 为支持 uWSGI 默认加载点，Flask 应用名称不能修改
-application = Flask('api-python-sample')
+application = Flask('ghibli')
 # 支持 JSON 显示中文
 application.config['JSON_AS_ASCII'] = False
 # 前端夸域
