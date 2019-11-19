@@ -5,8 +5,8 @@ from pathlib import PurePath
 
 from flask import Flask
 from flask_cors import CORS
-from happy_utils import HappyConfigParser
-from happy_utils import HappyLog
+from happy_python import HappyConfigParser
+from happy_python import HappyLog
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from config import Config

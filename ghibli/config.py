@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from happy_utils import HappyConfigBase
+from happy_python import HappyConfigBase
 
 
 class Config(HappyConfigBase):
