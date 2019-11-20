@@ -11,6 +11,7 @@ from flask import jsonify
 from flask import render_template
 from flask import redirect
 from flask_cors import CORS
+from common import config
 
 app = Flask(__name__)
 CORS(app, resources=r'/*')
@@ -68,6 +69,6 @@ def add_film():
 if __name__ == '__main__':
     app.debug = True
     app.run(
-        host='0.0.0.0',
-        port=5000
+        host=config.listen,
+        port=config.port
     )
