@@ -6,19 +6,12 @@
 app.py 只负责访问入口相关的代码
 """
 
-from flask import Flask, url_for
+from flask import url_for
 from flask import jsonify
 from flask import render_template
 from flask import redirect
-from flask_cors import CORS
+from common import app
 from common import config
-
-app = Flask(__name__)
-CORS(app, resources=r'/*')
-
-# 不使用 ascii 编码来序列化JSON对象
-# 显示中文
-app.config['JSON_AS_ASCII'] = False
 
 
 @app.route('/')

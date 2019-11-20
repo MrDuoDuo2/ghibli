@@ -19,11 +19,11 @@ LOG_CONFIG_FILENAME = str(CONFIG_DIR / 'log.ini')
 config = Config()
 HappyConfigParser.load(CONFIG_FILENAME, config)
 
-application = Flask('ghibli')
+app = Flask('ghibli')
 # 支持 JSON 显示中文
-application.config['JSON_AS_ASCII'] = False
-# 前端夸域
-CORS(application)
+app.config['JSON_AS_ASCII'] = False
+# 前端跨域设置
+CORS(app, resources=r'/*')
 
 hlog = HappyLog.get_instance(LOG_CONFIG_FILENAME)
 
