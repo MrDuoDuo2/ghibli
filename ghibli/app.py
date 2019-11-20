@@ -60,7 +60,7 @@ def add_film():
 
 
 if __name__ == '__main__':
-    app.debug = True
+    app.debug = config.debug
     app.run(
         host=config.listen,
         port=config.port
