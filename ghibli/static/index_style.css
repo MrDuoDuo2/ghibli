@@ -67,12 +67,8 @@ h1 {
 	padding-bottom: 10px;
 }
 
-.div_refresh, .div_add_film {
+.div_add_film {
 	display: inline-block;
-}
-
-.div_refresh {
-	padding-right: 10px;
 }
 
 .span_msg {

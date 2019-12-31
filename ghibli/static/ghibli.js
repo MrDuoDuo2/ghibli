@@ -23,6 +23,7 @@ function ajax_post(url, obj) {
 function delete_film(event) {
   var id = event.target.getAttribute("data-id")
   ajax_post('/delete_film', {'id':id})
+  location.reload();
 }
 
 function addCell(film_div, value, is_id, is_title, is_last) {
